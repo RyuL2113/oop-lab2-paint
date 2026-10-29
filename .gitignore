@@ -1,0 +1,33 @@
+# C# / .NET
+bin/
+obj/
+.vs/
+*.user
+
+# Java / Kotlin
+target/
+build/
+out/
+.gradle/
+*.class
+
+# C++
+cmake-build-*/
+*.o
+*.exe
+
+# IDE и система
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+
+# Unity и Godot (РПГ)
+Library/
+Temp/
+Logs/
+.godot/
+
+# Local release packages
+dist/
