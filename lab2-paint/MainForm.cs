@@ -26,7 +26,6 @@ public sealed class MainForm : ZenForm
             Button("Отменить", () => { _drawing.Undo(); Reset(); }), Button("Повторить", () => { _drawing.Redo(); Reset(); }), Button("Очистить", () => { _drawing.Clear(); Reset(); })));
         Body.Controls.Add(_canvas);
         Body.Controls.Add(Row(Button("Открыть", () => FileAction(false)), Button("Сохранить", () => FileAction(true), true), Button("Экспорт PNG", Export)));
-        Body.Controls.Add(Caption("Потяните мышью, чтобы нарисовать. Выделение: щелчок и перетаскивание. Delete · Ctrl+Z · Ctrl+Y"));
         _canvas.Paint += (_, e) => { e.Graphics.SmoothingMode = SmoothingMode.AntiAlias; _drawing.Draw(e.Graphics); _preview?.Draw(e.Graphics); if (_selected != null) { using var pen = new Pen(Red, 1) { DashStyle = DashStyle.Dash }; var points = _selected.Data().Points; var bounds = Rectangle.FromLTRB(points.Min(p => p.X) - 6, points.Min(p => p.Y) - 6, points.Max(p => p.X) + 6, points.Max(p => p.Y) + 6); e.Graphics.DrawRectangle(pen, bounds); } };
         _canvas.MouseDown += (_, e) =>
         {
