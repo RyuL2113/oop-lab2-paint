@@ -20,7 +20,7 @@ public sealed class MainForm : ZenForm
     private Color _color = Ink;
     private Shape? _preview, _selected;
     private Point _last, _origin;
-    public MainForm() : base("Линия и тишина", "02 / ГРАФИЧЕСКИЙ РЕДАКТОР     ·     Оставьте только необходимое")
+    public MainForm() : base("02 / ГРАФИЧЕСКИЙ РЕДАКТОР     ·     Оставьте только необходимое")
     {
         Body.Controls.Add(Row(_tool, Button("Цвет", () => { using var d = new ColorDialog { Color = _color }; if (d.ShowDialog() == DialogResult.OK) _color = d.Color; }), _width,
             Button("Отменить", () => { _drawing.Undo(); Reset(); }), Button("Повторить", () => { _drawing.Redo(); Reset(); }), Button("Очистить", () => { _drawing.Clear(); Reset(); })));
